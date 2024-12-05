@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,12 +12,14 @@ export class ApiService {
   constructor(private http: HttpClient) { }
   
   getData(endpoint:string):Observable<any>{
-    return this.http.get<any>(`${this.apiUrl}/${endpoint}`);
+    return this.http.get<any>(`${this.apiUrl}`);
   }
 
   postData(endpoint:string,body: any):Observable<any>{
     return this.http.post<any>(`${this.apiUrl}/${endpoint}`,body);
   }
+  
 
+  
 
 }

@@ -1,0 +1,9 @@
+img{
+    height: 150px;
+}
+.images-list{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:10px
+}

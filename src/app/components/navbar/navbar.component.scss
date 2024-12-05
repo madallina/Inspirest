@@ -1,0 +1,18 @@
+.navbar{
+    margin-top: 0;
+    display: flex;
+   
+}
+.nav-bar-logo img{
+    height: 50px;
+    margin: 10px;
+    border-radius: 5px;
+}
+.navbar-links{
+    display: flex;
+    list-style: none;
+   
+}
+li{
+    margin: 10px;
+}

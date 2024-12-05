@@ -15,9 +15,9 @@ export class ApiService {
     return this.http.get<any>(`${this.apiUrl}`);
   }
 
-  postData(endpoint:string,body: any):Observable<any>{
-    return this.http.post<any>(`${this.apiUrl}/${endpoint}`,body);
-  }
+  // postData(endpoint:string,body: any):Observable<any>{
+  //   return this.http.post<any>(`${this.apiUrl}/${endpoint}`,body);
+  // }
   
 
   

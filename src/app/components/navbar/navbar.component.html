@@ -1,14 +1,12 @@
-<nav class="navbar">
-    <div class="nav-bar-logo">
-        <img src="assets/logo2.png" alt="Logo"/>
-    </div>
-    <ul class="navbar-links">
-        <li><a routerLink="/home">Home</a></li>
-        <li><a routerLink="/favorites">Favorites</a></li>
-        
-    </ul>
-    
-</nav>
+
+<mat-toolbar>
+   <span>Inspirest</span> 
+   <span class="example-spacer"></span>
+   <button mat-icon-button  routerLink="/home" class="home-icon" >
+    <mat-icon>home</mat-icon>
+   </button>
+   <button mat-icon-button routerLink="/favorites" class="favorite-icon" >
+    <mat-icon>favorite</mat-icon>
+   </button>
+</mat-toolbar>
 <router-outlet></router-outlet>
-
-

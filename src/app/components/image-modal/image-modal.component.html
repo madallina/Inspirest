@@ -4,9 +4,11 @@
     <img [src]="data.url" alt="" />
   </mat-dialog-content>
   <mat-dialog-actions>
-    <button mat-mini-fab>
+    <button *ngIf="!checkRoute" (click)="addToFavorites(data.url)"  mat-mini-fab>
       <mat-icon aria-hidden="false"  fontIcon="favorite"></mat-icon>
-
+    </button>
+    <button *ngIf="checkRoute" (click)="deleteFavorite(data.url)" mat-mini-fab>
+      <mat-icon aria-hidden="false"  fontIcon="delete"></mat-icon>
     </button>
     <button mat-button mat-dialog-close>Close</button>
   </mat-dialog-actions>

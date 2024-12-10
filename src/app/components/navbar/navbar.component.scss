@@ -1,8 +1,12 @@
-.navbar{
+mat-toolbar {
     margin-top: 0;
     display: flex;
    
 }
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
 .nav-bar-logo img{
     height: 50px;
     margin: 10px;

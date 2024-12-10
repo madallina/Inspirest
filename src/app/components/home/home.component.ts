@@ -30,12 +30,12 @@ export class HomeComponent implements OnInit {
   }
 
   openImageDialog(url: string): void {
-    const dialogRef = this.dialog.open(ImageModalComponent, {
-      data: { url }  
-    });
-    
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+    this.apiService.openImageDialog(url);
+  }
+  addToFavorites(url: string):void{
+   this.apiService.addToFavorites(url);
+  }
+  getResizedImageUrl(url:string):string{
+    return this.apiService.getResizedImageUrl(url);
   }
 }

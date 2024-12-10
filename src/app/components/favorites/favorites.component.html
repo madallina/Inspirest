@@ -1,1 +1,9 @@
 
+<div *ngIf="favoritesImages">
+   <div *ngFor="let favorite of favoritesImages">
+    <img  (click)="openImageDialog(favorite)" [src]="getResizedImageUrl(favorite)" alt="Favorite image"/>
+    <button (click)="deleteFavorite(favorite)" mat-mini-fab>
+      <mat-icon aria-hidden="false"  fontIcon="delete"></mat-icon>
+    </button>
+   </div>
+</div>

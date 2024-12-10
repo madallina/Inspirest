@@ -2,11 +2,11 @@
   <div *ngFor="let item of data" class="image-item">
     <img
       (click)="openImageDialog(item.download_url)"
-      [src]="item.download_url"
+      [src]=" getResizedImageUrl(item.download_url)"
       [alt]="item.author"
     />
     <button mat-mini-fab>
-      <mat-icon aria-hidden="false"  fontIcon="favorite"></mat-icon>
+      <mat-icon (click)="addToFavorites(item.download_url)" aria-hidden="false"  fontIcon="favorite"></mat-icon>
     </button>
   </div>
 </div>

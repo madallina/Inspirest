@@ -27,8 +27,4 @@ export class ImageModalComponent implements OnInit {
   addToFavorites(url: string):void{
     this.apiService.addToFavorites(url);
    }
-   deleteFavorite(urlToDelete:string):void{
-      this.apiService.deleteFavorite(urlToDelete);
-      
-   }
 }

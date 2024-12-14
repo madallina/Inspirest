@@ -1,4 +1,4 @@
-<div class="images-list">
+<div class="images-list" appScrollDetector (scrolledToBottom)="onScrollToBottom()">
   <div *ngFor="let item of data" class="image-item">
     <img
       (click)="openImageDialog(item.download_url)"

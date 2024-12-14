@@ -9,10 +9,14 @@ import { ImageModalComponent } from './components/image-modal/image-modal.compon
 })
 export class ApiService {
   private apiUrl = 'https://picsum.photos/v2/list';
+  private nextPageUrl = 'https://picsum.photos/v2/list?page=3&limit=30';
   constructor(private http: HttpClient, public dialog: MatDialog) {}
 
   getData(endpoint: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}`);
+  }
+  addData(): Observable<any> {
+    return this.http.get<any>(`${this.nextPageUrl}`);
   }
 
   openImageDialog(url: string): void {
@@ -21,9 +25,9 @@ export class ApiService {
     });
   }
 
-  addToFavorites(url: string):void{
-    let favorites =JSON.parse(localStorage.getItem('favorites')||'[]');
-    if(!favorites.includes(url)){
+  addToFavorites(url: string): void {
+    let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    if (!favorites.includes(url)) {
       favorites.push(url);
       localStorage.setItem('favorites', JSON.stringify(favorites));
     }
@@ -37,17 +41,14 @@ export class ApiService {
       );
       localStorage.setItem('favorites', JSON.stringify(updatedFavoritesList));
 
-      return updatedFavoritesList
-    } 
-   return []
+      return updatedFavoritesList;
+    }
+    return [];
   }
-  getResizedImageUrl(url:string):string{
-    const devidedUrl=url.split('/');
-    devidedUrl[devidedUrl.length-2]='800';
-    devidedUrl[devidedUrl.length-1]='550';
-    console.log(devidedUrl.join('/'));
+  getResizedImageUrl(url: string): string {
+    const devidedUrl = url.split('/');
+    devidedUrl[devidedUrl.length - 2] = '800';
+    devidedUrl[devidedUrl.length - 1] = '550';
     return devidedUrl.join('/');
-
   }
-
 }

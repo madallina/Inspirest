@@ -2,12 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { ImageModalComponent } from '../image-modal/image-modal.component';
-import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from '../../api.service';
 @Component({
   selector: 'app-favorites',
-  imports: [CommonModule, MatButtonModule, MatIconModule, ImageModalComponent],
+  imports: [CommonModule, MatButtonModule, MatIconModule],
   templateUrl: './favorites.component.html',
   styleUrl: './favorites.component.scss',
 })

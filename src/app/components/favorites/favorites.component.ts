@@ -3,6 +3,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ApiService } from '../../api.service';
+import { ImageService } from '../../image.service';
+
 @Component({
   selector: 'app-favorites',
   imports: [CommonModule, MatButtonModule, MatIconModule],
@@ -11,7 +13,10 @@ import { ApiService } from '../../api.service';
 })
 export class FavoritesComponent implements OnInit {
   favoritesImages: string[] = [];
-  constructor(public apiService: ApiService) {}
+  constructor(
+    public apiService: ApiService,
+    public imageService: ImageService
+  ) {}
 
   ngOnInit(): void {
     const favorites = localStorage.getItem('favorites');
@@ -20,13 +25,13 @@ export class FavoritesComponent implements OnInit {
     }
   }
   openImageDialog(url: string): void {
-    this.apiService.openImageDialog(url);
+    this.imageService.openImageDialog(url);
   }
 
   deleteFavorite(urlToDelete: string): void {
-    this.favoritesImages = this.apiService.deleteFavorite(urlToDelete);
+    this.favoritesImages = this.imageService.deleteFavorite(urlToDelete);
   }
-  getResizedImageUrl(url:string):string{
-    return this.apiService.getResizedImageUrl(url);
+  getResizedImageUrl(url: string): string {
+    return this.imageService.getResizedImageUrl(url);
   }
 }

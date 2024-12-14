@@ -5,6 +5,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { ApiService } from '../../api.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import {ImageService} from '../../image.service';
+
 
 
 @Component({
@@ -14,7 +16,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './image-modal.component.scss'
 })
 export class ImageModalComponent implements OnInit {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,public apiService:ApiService,private router:Router) { 
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,public apiService:ApiService,private router:Router,public imageService:ImageService) { 
   }
   checkRoute:boolean=false;
   ngOnInit(): void {
@@ -23,7 +25,7 @@ export class ImageModalComponent implements OnInit {
       }
   }
   addToFavorites(url: string):void{
-    this.apiService.addToFavorites(url);
+    this.imageService.addToFavorites(url);
     
    }
 }

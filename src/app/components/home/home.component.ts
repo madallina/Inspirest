@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { fromEvent, throttleTime } from 'rxjs';
 import { ScrollDetectorDirective } from '../../scroll-detector.directive';
+import {ImageService} from '../../image.service';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,7 @@ import { ScrollDetectorDirective } from '../../scroll-detector.directive';
 })
 export class HomeComponent implements OnInit {
   data: any = [];
-  constructor(private apiService: ApiService, public dialog: MatDialog) {}
+  constructor(private apiService: ApiService, public dialog: MatDialog,public imageService:ImageService) {}
   ngOnInit(): void {
     this.apiService.getData('end-specific').subscribe({
       next: (response) => {
@@ -33,13 +34,13 @@ export class HomeComponent implements OnInit {
   }
 
   openImageDialog(url: string): void {
-    this.apiService.openImageDialog(url);
+    this.imageService.openImageDialog(url);
   }
   addToFavorites(url: string): void {
-    this.apiService.addToFavorites(url);
+    this.imageService.addToFavorites(url);
   }
   getResizedImageUrl(url: string): string {
-    return this.apiService.getResizedImageUrl(url);
+    return this.imageService.getResizedImageUrl(url);
   }
   onScrollToBottom(): void {
     this.apiService.addData().subscribe(val => {

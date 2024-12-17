@@ -16,8 +16,8 @@ export class ImageService {
   }
   addToFavorites(url: string): void {
     let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-    if (!favorites.includes(url)) {
-      favorites.push(url);
+    if (!favorites.includes(this.getResizedImageUrl(url))) {
+      favorites.push(this.getResizedImageUrl(url));
       localStorage.setItem('favorites', JSON.stringify(favorites));
     }
   }

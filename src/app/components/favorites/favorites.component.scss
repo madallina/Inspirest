@@ -1,18 +1,20 @@
 
 img{
     height: 150px;
+    width: 250px;
 }
 div {
     display: flex;
     flex-wrap: wrap;
     gap:10px;
-    
+    justify-content: center;
     position: relative;
 }
 button{
     position: absolute;
     background-color: rgba(255, 255, 255, 0.6);
     bottom: 10px;
+    right: 5px;
 
     
 }

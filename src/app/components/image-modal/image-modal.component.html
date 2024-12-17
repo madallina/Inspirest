@@ -1,4 +1,5 @@
 <div class="modal-container">
+  <button mat-button mat-dialog-close>Close</button>
   <mat-dialog-content>
     <img [src]="data.url" alt="" />
   </mat-dialog-content>
@@ -6,6 +7,5 @@
     <button *ngIf="!checkRoute" (click)="addToFavorites(data.url)"  mat-mini-fab>
       <mat-icon aria-hidden="false"  fontIcon="favorite"></mat-icon>
     </button>
-    <button mat-button mat-dialog-close>Close</button>
   </mat-dialog-actions>
 </div>

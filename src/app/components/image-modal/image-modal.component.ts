@@ -23,9 +23,12 @@ export class ImageModalComponent implements OnInit {
       if(this.router.url.includes('/favorites')){
         this.checkRoute=true;
       }
+
+      this.data.url = this.imageService.getResizedImageUrl(this.data.url)
   }
   addToFavorites(url: string):void{
     this.imageService.addToFavorites(url);
-    
+  
    }
+
 }

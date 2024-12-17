@@ -8,13 +8,16 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ApiService {
   private apiUrl = 'https://picsum.photos/v2/list';
-  private nextPageUrl = 'https://picsum.photos/v2/list?page=3&limit=30';
   constructor(private http: HttpClient, public dialog: MatDialog) {}
 
   getData(endpoint: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}`);
+
   }
   addData(): Observable<any> {
-    return this.http.get<any>(`${this.nextPageUrl}`);
+    return this.http.get<any>(`https://picsum.photos/v2/list?page=${Math.floor(Math.random()*(20 - 3) +3)}&limit=30`);
+
   }
+  
+  
 }

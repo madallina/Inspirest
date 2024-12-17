@@ -26,6 +26,12 @@ export class HomeComponent implements OnInit {
     this.apiService.getData('end-specific').subscribe({
       next: (response) => {
         this.data = response;
+        if (window.innerWidth > 1440) {
+          this.apiService.addData().subscribe(val => {
+            this.data.push(...val)
+          });
+        }
+        
       },
       error: (err) => {
         console.log('Error: ', err);
